@@ -18,6 +18,10 @@ public class Engine implements Runnable {
         timer = new Timer();
     }
 
+    public boolean isRunning() {
+        return running;
+    }
+
     public ILogic getLogic() {
         return logic;
     }

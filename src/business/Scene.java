@@ -16,9 +16,9 @@ public class Scene implements ILogic {
     private final int width = 1000;
     private final int height = 900;
     private final double epsilon = 10*Double.MIN_VALUE;
-    private final int amountParticles = 500;
-    private final int minRadius = 5;
-    private final int maxRadius = 15;
+    private final int amountParticles = 2000;
+    private final int minRadius = 3;
+    private final int maxRadius = 10;
     private final int minVelocity = -50;
     private final int maxVelocity = 50;
     private final int maxWeight = 50;
@@ -27,6 +27,7 @@ public class Scene implements ILogic {
     public Scene() {
         box = new Box(0,0,width,height);
         collisionDetector = new CollisionDetector();
+        particleList = new ArrayList<>();
         reset();
     }
 
@@ -100,7 +101,7 @@ public class Scene implements ILogic {
     }
 
     public void reset() {
-        particleList = new ArrayList<>();
+        particleList.clear();
         for (int i=0; i<amountParticles; i++) {
             Particle particle = new Particle();
             particle.setRadius(Math.random()*(maxRadius-minRadius)+minRadius);

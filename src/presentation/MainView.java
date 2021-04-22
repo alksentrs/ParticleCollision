@@ -40,7 +40,7 @@ public class MainView implements IOutputObserver {
     public void open() {
 
         jFrame = new JFrame("Particle Collision");
-        jFrame.setPreferredSize(new Dimension(1280, 960));
+        jFrame.setPreferredSize(new Dimension(1020, 960));
         jFrame.add(jPanelMain);
 
         viewHelper = new ViewHelper(scene);
@@ -49,7 +49,7 @@ public class MainView implements IOutputObserver {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if (null!=engine) (new Thread(engine)).start();
+                if ((null!=engine)&&(!engine.isRunning())) (new Thread(engine)).start();
             }
         });
 
